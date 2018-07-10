@@ -36,6 +36,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Rock">
+      <HintPath>..\RockWeb\Bin\Rock.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -53,15 +56,9 @@
     <Compile Include="Extensions\XContainerExtensions.cs" />
     <Compile Include="Helpers\Check.cs" />
     <Compile Include="Helpers\DebugCheck.cs" />
-    <Compile Include="Migrations\MyMigration.cs" />
+    <Compile Include="Migrations\FluentMigration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Xml\EdmXNames.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Rock\Rock.csproj">
-      <Project>{185a31d7-3037-4dae-8797-0459849a84bd}</Project>
-      <Name>Rock</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
