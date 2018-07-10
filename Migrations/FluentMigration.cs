@@ -151,7 +151,7 @@ namespace org.christchapelbc.Utility.Migrations
         ///     Use anonymous type syntax to specify arguments e.g. <code>new { SampleArgument = "MyValue" }</code>.
         /// </param>
         /// <returns>An object that allows further configuration of the table creation operation.</returns>
-        public TableBuilder<TColumns> CreateTable<TColumns>(
+        public new TableBuilder<TColumns> CreateTable<TColumns>(
             string name,
             Func<ColumnBuilder, TColumns> columnsAction,
             IDictionary<string, object> annotations,
