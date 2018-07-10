@@ -14,7 +14,7 @@ using org.christchapelbc.Utility.Helpers;
 namespace org.christchapelbc.Utility.Extensions
 {
     /// <summary>
-    /// Additional functions for a <see cref="DbContext"/>.
+    /// Additional functions for a <see cref="System.Data.Entity.DbContext"/>.
     /// </summary>
     /// <remarks>
     /// Adapted from <see cref="System.Data.Entity.Utilities.DbContextExtensions"/>.
@@ -24,7 +24,7 @@ namespace org.christchapelbc.Utility.Extensions
         /// <summary>
         /// Returns the database schema in the form XML.
         /// </summary>
-        /// <param name="context">The <see cref="DbContext"/> to access the database with.</param>
+        /// <param name="context">The <see cref="System.Data.Entity.DbContext"/> to access the database with.</param>
         /// <returns>The database schema as XML.</returns>
         public static XDocument GetModel( this DbContext context )
         {
@@ -36,7 +36,7 @@ namespace org.christchapelbc.Utility.Extensions
         /// <summary>
         /// Returns the database schema in the form XML.
         /// </summary>
-        /// <param name="writeXml">The action to perform on an <see cref="XmlWriter"/>.</param>
+        /// <param name="writeXml">The action to perform on an <see cref="System.Xml.XmlWriter"/>.</param>
         /// <returns>The database schema as XML.</returns>
         public static XDocument GetModel( Action<XmlWriter> writeXml )
         {

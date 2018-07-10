@@ -23,7 +23,7 @@ namespace org.christchapelbc.Utility.Helpers
         /// <param name="value">The value of the object <typeparamref name="T"/>.</param>
         /// <param name="parameterName">The name of the field with type <typeparamref name="T"/>.</param>
         /// <returns>The object <typeparamref name="T"/>.</returns>
-        /// <exception cref="ArgumentNullException"><paramref name="parameterName"/> is null.</exception>
+        /// <exception cref="System.ArgumentNullException"><paramref name="parameterName"/> is null.</exception>
         public static T NotNull<T>( T value, string parameterName ) where T : class
         {
             if ( value == null )
@@ -40,7 +40,7 @@ namespace org.christchapelbc.Utility.Helpers
         /// <param name="value">The value of the <see cref="string"/> object.</param>
         /// <param name="parameterName">The name of the <see cref="string"/> field.</param>
         /// <returns>The <see cref="string"/> object.</returns>
-        /// <exception cref="ArgumentNullException"><paramref name="parameterName"/> is null or contains only whitespace.</exception>
+        /// <exception cref="System.ArgumentNullException"><paramref name="parameterName"/> is null or contains only whitespace.</exception>
         public static string NotNullOrWhiteSpace( string value, string parameterName )
         {
             if ( string.IsNullOrWhiteSpace( value ) )

@@ -28,7 +28,7 @@ using org.christchapelbc.Utility.Xml;
 namespace org.christchapelbc.Utility.Migrations
 {
     /// <summary>
-    /// A shim over <see cref="Migration"/> that allows the use of the
+    /// A shim over <see cref="Rock.Plugin.Migration"/> that allows the use of the
     /// fluent-style API in Entity Framework.
     /// </summary>
     public abstract class FluentMigration : Migration
@@ -36,7 +36,7 @@ namespace org.christchapelbc.Utility.Migrations
         #region Member fields
 
         /// <summary>
-        /// The <see cref="DbMigration"/> implementation that allows the use
+        /// The <see cref="System.Data.Entity.Migrations.DbMigration"/> implementation that allows the use
         /// of fluent-style API from Entity Framework.
         /// </summary>
         private FluentDbMigration _migration = new FluentDbMigration();
@@ -167,8 +167,8 @@ namespace org.christchapelbc.Utility.Migrations
         #endregion
 
         /// <summary>
-        /// An extension of <see cref="DbMigration"/> that uses reflection
-        /// to access the <see cref="MigrationOperation"/>s queued up
+        /// An extension of <see cref="System.Data.Entity.Migrations.DbMigration"/> that uses reflection
+        /// to access the <see cref="System.Data.Entity.Migrations.Model.MigrationOperation"/>s queued up
         /// by the fluent-style API.
         /// </summary>
         private class FluentDbMigration : DbMigration
@@ -232,10 +232,10 @@ namespace org.christchapelbc.Utility.Migrations
             }
 
             /// <summary>
-            /// Converts all the <see cref="MigrationOperation"/>s applied to
-            /// this <see cref="FluentDbMigration"/> to the SQL equivalent.
+            /// Converts all the <see cref="System.Data.Entity.Migrations.Model.MigrationOperation"/>s applied to
+            /// this <see cref="org.christchapelbc.Utility.Migrations.FluentMigration.FluentDbMigration"/> to the SQL equivalent.
             /// </summary>
-            /// <returns>A <see cref="string"/> containing all the SQL for the <see cref="MigrationOperation"/>s.</returns>
+            /// <returns>A <see cref="string"/> containing all the SQL for the <see cref="System.Data.Entity.Migrations.Model.MigrationOperation"/>s.</returns>
             /// <exception cref="System.Exception">The table a foreign key references does not exist.</exception>
             public string ToSql( SqlConnection sqlConnection )
             {
@@ -271,10 +271,10 @@ namespace org.christchapelbc.Utility.Migrations
             #region Private member functions
 
             /// <summary>
-            /// Searches for <see cref="AddForeignKeyOperation"/>s in <paramref name="operations"/> and
+            /// Searches for <see cref="System.Data.Entity.Migrations.Model.AddForeignKeyOperation"/>s in <paramref name="operations"/> and
             /// completes the operation by adding the principal column of the referenced table.
             /// </summary>
-            /// <param name="operations">The <see cref="MigrationOperation"/>s that possibly contain an <see cref="AddForeignKeyOperation"/>.</param>
+            /// <param name="operations">The <see cref="System.Data.Entity.Migrations.Model.MigrationOperation"/>s that possibly contain an <see cref="System.Data.Entity.Migrations.Model.AddForeignKeyOperation"/>.</param>
             /// <param name="sqlConnection">A connection to a SQL server where the database used in the migration is stored.</param>
             private void CompleteForeignKeyOperations( IEnumerable<MigrationOperation> operations, SqlConnection sqlConnection )
             {
@@ -346,7 +346,7 @@ namespace org.christchapelbc.Utility.Migrations
             /// <summary>
             /// Formats a database table name to a <code>Schema.TableName</code> pattern.
             /// Schema name is optional; if no schema is specified then the
-            /// default schema from the <see cref="SqlConnection"/> is assumed.
+            /// default schema from the <see cref="System.Data.SqlClient.SqlConnection"/> is assumed.
             /// </summary>
             /// <param name="tableName">The name of the table, standardized or not.</param>
             /// <returns>A standardized database table name.</returns>
@@ -392,13 +392,13 @@ namespace org.christchapelbc.Utility.Migrations
                 #region Constructors
 
                 /// <summary>
-                /// Initializes a new instance of the <see cref="DatabaseName"/> class.
+                /// Initializes a new instance of the <see cref="org.christchapelbc.Utility.Migrations.FluentMigration.FluentDbMigration.DatabaseName"/> class.
                 /// </summary>
                 /// <param name="name">The name of the database.</param>
                 public DatabaseName( string name ) : this( name, null ) { }
 
                 /// <summary>
-                /// Initializes a new instance of the <see cref="DatabaseName"/> class.
+                /// Initializes a new instance of the <see cref="org.christchapelbc.Utility.Migrations.FluentMigration.FluentDbMigration.DatabaseName"/> class.
                 /// </summary>
                 /// <param name="name">The name of the database.</param>
                 /// <param name="schema">The name of the schema of the database.</param>
@@ -443,7 +443,7 @@ namespace org.christchapelbc.Utility.Migrations
                 /// from a <see cref="string"/>.
                 /// </summary>
                 /// <param name="name">A <see cref="string"/> that possibly contains a table name and schema name.</param>
-                /// <returns>A <see cref="DatabaseName"/> object with properties extracted from the input.</returns>
+                /// <returns>A <see cref="org.christchapelbc.Utility.Migrations.FluentMigration.FluentDbMigration.DatabaseName"/> object with properties extracted from the input.</returns>
                 public static DatabaseName Parse( string name )
                 {
                     DebugCheck.NotNullOrWhiteSpace( name );
