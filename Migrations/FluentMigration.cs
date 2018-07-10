@@ -8,9 +8,11 @@ using System.Data.Entity.Migrations.Model;
 using System.Data.Entity.Migrations.Sql;
 using System.Data.Entity.SqlServer;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
 using Rock;
@@ -20,8 +22,6 @@ using Rock.Plugin;
 using org.christchapelbc.Utility.Extensions;
 using org.christchapelbc.Utility.Helpers;
 using org.christchapelbc.Utility.Xml;
-using System.Globalization;
-using System.Text.RegularExpressions;
 
 #endregion
 
